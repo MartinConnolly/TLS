@@ -825,3 +825,16 @@
       ((atom? pora) pora)
       ((a-pair? (first pora)) (align (shift pora)))
       (else (build (first pora) (align (second pora)))))))
+
+;(define length*
+;  (λ (pora)
+;    (cond
+;      ((null? pora) 0)
+;      ((atom? (car pora)) (add1 (length* (cdr pora))))
+;      (else (o+ (length* (car pora)) (length* (cdr pora)))))))
+
+(define length*
+  (λ (pora)
+    (cond
+      ((atom? pora) 1)
+      (else (o+ (length* (first pora)) (length* (second pora)))))))
