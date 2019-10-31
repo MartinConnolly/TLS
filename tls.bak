@@ -818,10 +818,3 @@
   (λ (pair)
     (build (first (first pair))
            (build (second (first pair)) (second pair)))))
-
-(define align
-  (λ (pora)
-    (cond
-      ((atom? pora) pora)
-      ((a-pair? (first pora)) (align (shift pora)))
-      (else (build (first pora) (align (second pora)))))))
